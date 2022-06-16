@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { GenericService } from '../services/generic.service';
 
 @Component({
-  selector: 'app-root',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['company.component.css']})
 
-export class dashboardComponent {
+export class DashboardComponent {
   title = 'AUS2FrontEnd';
   showapply = false;
   showaccount = false;
+  generic: GenericService;
+
+  constructor(gen: GenericService) {
+      this.generic = gen;
+  }
 
   showApply() {
     if (this.showapply) {
