@@ -1,3 +1,3 @@
 export const environment = {
-  production: true
+  production: false, apiUrl: 'https://ausv2.azurewebsites.net/api/aus'
 };

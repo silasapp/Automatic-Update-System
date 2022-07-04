@@ -4,7 +4,7 @@ import { homeComponent } from './home.component';
 
 const routes: Routes = [
     {path: '', component: homeComponent},
-    {path: 'home', component: homeComponent}
+    {path: 'home/:email', component: homeComponent}
 ];
 
 @NgModule({

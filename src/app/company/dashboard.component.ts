@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services';
 import { GenericService } from '../services/generic.service';
 
 @Component({
   templateUrl: 'dashboard.component.html',
   styleUrls: ['company.component.css']})
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   title = 'AUS2FrontEnd';
   showapply = false;
   showaccount = false;
   generic: GenericService;
 
-  constructor(gen: GenericService) {
+  constructor(private gen: GenericService, 
+    private auth: AuthenticationService) {
       this.generic = gen;
+  }
+
+  ngOnInit(): void {
+    alert(this.auth.currentUserValue.userId);
   }
 
   showApply() {
