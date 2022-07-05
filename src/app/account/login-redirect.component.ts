@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { GuardsCheckEnd, Router, ActivatedRoute } from '@angular/router';
+import { GuardsCheckEnd, Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthenticationService, GenericService } from '../services';
-import { environment } from 'src/environments/environment' ;
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'home.component.html',
-  styleUrls: ['home.component.css'],
+  template: '<div>Redirecting</div>',
+  styleUrls: ['../home/home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class homeComponent implements OnInit {
+export class LoginRedirectComponent implements OnInit {
   title = 'AUS2FrontEnd';
   emailModal = false;
   loginForm: FormGroup;
@@ -38,18 +37,18 @@ export class homeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      'Email': new FormControl(this.email, [Validators.required])
-    }, {});
-
+    this.cd.markForCheck();
+    this.route.queryParams.subscribe((params: Params) => {
+            this.email = params['email'];
+      });
+      this.login();
   }
 
-  toggleEmailModal() {
-    if (!this.emailModal) {
-      this.emailModal = true;
-    } else {
-      this.emailModal = false;
-    }
-    this.cd.markForCheck();
+  login() {
+    //debugger;
+    this.auth.login(this.email, this.genk.authCode)
+    .subscribe(result => {
+      this.router.navigate(['/' + this.genk.company, 'dashboard']);
+    });
   }
 }

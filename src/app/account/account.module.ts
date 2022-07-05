@@ -5,10 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AccountRoutingModule } from './accoun-routing.module';
 import { AccountComponent } from './account.component';
+import { LoginRedirectComponent } from './login-redirect.component';
+
 
 @NgModule({
   declarations: [
     AccountComponent,
+    LoginRedirectComponent
   
   ],
   imports: [
