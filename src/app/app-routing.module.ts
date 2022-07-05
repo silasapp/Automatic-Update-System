@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompanyComponent } from './company/company.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/company',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
     path: 'company',
+    component: CompanyComponent,
     loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)
   },
   {

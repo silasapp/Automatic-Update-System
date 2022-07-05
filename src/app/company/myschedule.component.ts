@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   templateUrl: 'myschedule.component.html',
-  styleUrls: ['company.component.css']})
+  styleUrls: ['company.component.scss']})
 
 export class MyScheduleComponent {
     

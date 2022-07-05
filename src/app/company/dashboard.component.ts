@@ -5,7 +5,7 @@ import { GenericService } from '../services/generic.service';
 
 @Component({
   templateUrl: 'dashboard.component.html',
-  styleUrls: ['company.component.css']})
+  styleUrls: ['company.component.scss']})
 
 export class DashboardComponent implements OnInit {
   title = 'AUS2FrontEnd';
@@ -13,13 +13,14 @@ export class DashboardComponent implements OnInit {
   showaccount = false;
   generic: GenericService;
 
-  constructor(private gen: GenericService, 
+  constructor(private gen: GenericService,
+    private router: Router,
     private auth: AuthenticationService) {
       this.generic = gen;
   }
 
   ngOnInit(): void {
-    alert(this.auth.currentUserValue.userId);
+
   }
 
   showApply() {
@@ -36,5 +37,10 @@ export class DashboardComponent implements OnInit {
     } else {
       this.showaccount = true;
     }
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/' + this.generic.home]);
   }
 }

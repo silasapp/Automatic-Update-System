@@ -13,6 +13,7 @@ import { MyApplicationComponent } from './myapplication.component';
 import { CompanyDirectorsComponent } from './companydirectors.component';
 import { CompanyInformationComponent } from './companyinformation.component';
 import { RegisterDirectorComponent } from './registerdirector.component';
+import { CompanyComponent } from './company.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RegisterDirectorComponent } from './registerdirector.component';
   declarations: [
     DashboardComponent, MessagesComponent, ChangePasswordComponent, MyScheduleComponent,
     CompanyProfileComponent, PermitsComponent, ApplyComponent, MyApplicationComponent,
-    CompanyInformationComponent, CompanyDirectorsComponent, RegisterDirectorComponent
+    CompanyInformationComponent, CompanyDirectorsComponent, RegisterDirectorComponent, 
+    CompanyComponent
   ],
   providers: [],
 })
